@@ -1,0 +1,67 @@
+name: 'Commit Version and Create Release'
+description: 'GitHub action for committing and pushing changes related to versioning an for creating a new release with artefacts.'
+author: prantlf
+
+branding:
+  icon: sunset
+  color: yellow
+
+inputs:
+  branches:
+    description: >-
+      Branches which this action should run for, which are used to publishing releases. Use spaces for separating the branch names. If you want to use multiple lines in YAML, introduce them with ">-". If you want to allow all branches, set the value to "*".
+    default: main master
+  enable:
+    description: >-
+      Can be set to `false` to prevent this action from running. It's helpful in the pipeline, which will not continue releasing, but only building and testing, and that will be decided in the middle of a job execution.
+    default: true
+  no-archives:
+    description: >-
+      Set to `true` not to upload platform archives automatically as release assets.
+    default: false
+  dry-run:
+    description: >-
+      Can be set to `true` to only print what would be done without actually doing it.
+    default: false
+
+runs:
+  using: 'composite'
+  steps:
+  - name: Setup parameters
+    if: ${{ inputs.enable == 'true' }}
+    id: setup
+    env:
+      BV_BRANCHES: ${{ inputs.branches }}
+    shell: bash
+    run: |
+      if [[ "$BV_BRANCHES" == "*" || " $BV_BRANCHES " == *" $GITHUB_REF_NAME "* ]]; then
+        echo "enable=true" >> $GITHUB_OUTPUT
+      fi
+  - name: Install newchanges
+    if: ${{ steps.setup.outputs.enable == 'true' }}
+    uses: prantlf/install-release-action@v1
+    with:
+      repo: prantlf/v-newchanges
+  - name: Install vp
+    if: ${{ steps.setup.outputs.enable == 'true' }}
+    uses: prantlf/install-release-action@v1
+    with:
+      repo: prantlf/vp
+  - name: Commit and push changes and create release
+    if: ${{ steps.setup.outputs.enable == 'true' }}
+    shell: bash
+    env:
+      BV_NO_ARCHIVES: ${{ inputs.no-archives }}
+      BV_DRY: ${{ inputs.dry-run }}
+    run: |
+      VP_OPTIONS="-yv --commit"
+      if [[ "$BV_NO_ARCHIVES" == "true" ]]; then
+        echo "archives disabled"
+        VP_OPTIONS="$VP_OPTIONS --no-archives"
+      fi
+      if [[ "$BV_DRY" == "true" ]]; then
+        echo "dry-run enabled"
+        VP_OPTIONS="$VP_OPTIONS -d"
+      fi
+      echo "execute \"vp $VP_OPTIONS publish\""
+      vp $VP_OPTIONS publish
