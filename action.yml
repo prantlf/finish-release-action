@@ -56,7 +56,7 @@ runs:
     run: |
       git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
       git config --global user.name "github-actions[bot]"
-      VP_OPTIONS="-yv --commit"
+      VP_OPTIONS="-yv --commit --tag"
       if [[ "$BV_NO_ARCHIVES" == "true" ]]; then
         echo "archives disabled"
         VP_OPTIONS="$VP_OPTIONS --no-archives"
