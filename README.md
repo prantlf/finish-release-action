@@ -50,6 +50,13 @@ Default: `true`
 
 Can be set to `false` to prevent this action from running. It's helpful in the pipeline, which will not continue releasing, but only building and testing, and that will be decided in the middle of a job execution.
 
+### no-bump
+
+Type: `Boolean`<br>
+Default: `false`
+
+Set to `true` not to bump the version number in source files. Only the changelog will be modified.
+
 ### no-archives
 
 Type: `Boolean`<br>

@@ -15,6 +15,10 @@ inputs:
     description: >-
       Can be set to `false` to prevent this action from running. It's helpful in the pipeline, which will not continue releasing, but only building and testing, and that will be decided in the middle of a job execution.
     default: true
+  no-bump:
+    description: >-
+      Set to `true` not to bump the version number in source files. Only the changelog will be modified.
+    default: false
   no-archives:
     description: >-
       Set to `true` not to upload platform archives automatically as release assets.
@@ -55,6 +59,7 @@ runs:
     if: ${{ steps.setup.outputs.enable == 'true' }}
     shell: bash
     env:
+      FR_NO_BUMP: ${{ inputs.no-bump }}
       FR_NO_ARCHIVES: ${{ inputs.no-archives }}
       FR_DRY: ${{ inputs.dry-run }}
       FR_DEBUG: ${{ inputs.debug }}
@@ -62,6 +67,10 @@ runs:
       git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
       git config --global user.name "github-actions[bot]"
       VP_OPTIONS="-yv --commit --tag"
+      if [[ "$FR_NO_BUMP" == "true" ]]; then
+        echo "bumping version number disabled"
+        VP_OPTIONS="$VP_OPTIONS --no-bump"
+      fi
       if [[ "$FR_NO_ARCHIVES" == "true" ]]; then
         echo "archives disabled"
         VP_OPTIONS="$VP_OPTIONS --no-archives"
