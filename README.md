@@ -64,6 +64,13 @@ Default: `false`
 
 Can be set to `true` to only print what would be done without actually doing it.
 
+### debug
+
+Type: `Boolean`<br>
+Default: `false`
+
+Can be set to `true` to enable debug logging of the supporting tools. Debug logging will be enabled also if it's enabled on the runner.
+
 ## License
 
 Copyright (C) 2023 Ferdinand Prantl
