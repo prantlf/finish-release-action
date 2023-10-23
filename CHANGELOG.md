@@ -1,5 +1,11 @@
 # Changes
 
+# [1.0.2](https://github.com/prantlf/finish-release-action/compare/v1.0.1...v1.0.2) (2023-10-23)
+
+## Bug Fixes
+
+* Temporarily enable debug logging ([7818e2e](https://github.com/prantlf/finish-release-action/commit/7818e2eabe5b284da92f0b51577660673281355e))
+
 # [1.0.1](https://github.com/prantlf/finish-release-action/compare/v1.0.0...v1.0.1) (2023-10-23)
 
 ## Bug Fixes
