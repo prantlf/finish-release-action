@@ -66,4 +66,4 @@ runs:
         VP_OPTIONS="$VP_OPTIONS -d"
       fi
       echo "execute \"vp $VP_OPTIONS publish\""
-      vp $VP_OPTIONS publish
+      DEBUG=* vp $VP_OPTIONS publish
