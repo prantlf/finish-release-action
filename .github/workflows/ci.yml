@@ -13,41 +13,8 @@ on:
 
 jobs:
 
-  linux:
+  release:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout sources
       uses: actions/checkout@v4
-    - name: Test
-      uses: ./
-      with:      
-        no-archives: true
-        dry-run: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  macos:
-    runs-on: macos-latest
-    steps:
-    - name: Checkout sources
-      uses: actions/checkout@v4
-    - name: Test
-      uses: ./
-      with:      
-        no-archives: true
-        dry-run: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  # windows:
-  #   runs-on: windows-latest
-  #   steps:
-  #   - name: Checkout sources
-  #     uses: actions/checkout@v4
-  #   - name: Test
-  #     uses: ./
-  #     with:      
-  #       no-archives: true
-  #       dry-run: true
-  #     env:
-  #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

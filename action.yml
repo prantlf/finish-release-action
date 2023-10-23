@@ -54,6 +54,8 @@ runs:
       BV_NO_ARCHIVES: ${{ inputs.no-archives }}
       BV_DRY: ${{ inputs.dry-run }}
     run: |
+      git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      git config --global user.name "github-actions[bot]"
       VP_OPTIONS="-yv --commit"
       if [[ "$BV_NO_ARCHIVES" == "true" ]]; then
         echo "archives disabled"
