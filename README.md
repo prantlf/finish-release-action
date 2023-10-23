@@ -10,8 +10,6 @@ Commit and push the changelog using the latest version written to it and create 
 
 ```yml
 - uses: prantlf/finish-release-action@v1
-  with:
-    files: CHANGELOG.md
 ```
 
 Work only in specific release branches, run only if new version is detected in the commit messages by [prantlf/bump-version-action]:
