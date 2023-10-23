@@ -1,5 +1,11 @@
 # Changes
 
+# [1.0.3](https://github.com/prantlf/finish-release-action/compare/v1.0.2...v1.0.3) (2023-10-23)
+
+## Bug Fixes
+
+* Tag the committed changes ([1d69f6a](https://github.com/prantlf/finish-release-action/commit/1d69f6ad0249dd6317ce066612d1b41970e7034c))
+
 # [1.0.2](https://github.com/prantlf/finish-release-action/compare/v1.0.1...v1.0.2) (2023-10-23)
 
 ## Bug Fixes
