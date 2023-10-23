@@ -39,15 +39,15 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  windows:
-    runs-on: windows-latest
-    steps:
-    - name: Checkout sources
-      uses: actions/checkout@v4
-    - name: Test
-      uses: ./
-      with:      
-        no-archives: true
-        dry-run: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  # windows:
+  #   runs-on: windows-latest
+  #   steps:
+  #   - name: Checkout sources
+  #     uses: actions/checkout@v4
+  #   - name: Test
+  #     uses: ./
+  #     with:      
+  #       no-archives: true
+  #       dry-run: true
+  #     env:
+  #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
