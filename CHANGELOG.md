@@ -1,5 +1,11 @@
 # Changes
 
+# [1.2.0](https://github.com/prantlf/finish-release-action/compare/v1.1.0...v1.2.0) (2023-11-04)
+
+## Features
+
+* Add parameters no-commit, no-tag and no-push ([16e0500](https://github.com/prantlf/finish-release-action/commit/16e0500558307e4af0a477f9fc26a3a77d6189ae))
+
 # [1.1.0](https://github.com/prantlf/finish-release-action/compare/v1.0.3...v1.1.0) (2023-10-23)
 
 ## Features
