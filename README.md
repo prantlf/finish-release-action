@@ -55,6 +55,27 @@ Default: `false`
 
 Set to `true` not to bump the version number in source files. Only the changelog will be modified.
 
+### no-commit
+
+Type: `Boolean`<br>
+Default: `false`
+
+Set to `true` not to commit the changes. If you set `no-bump`, you'll likely want to set `no-commit` and `no-push` too.
+
+### no-tag
+
+Type: `Boolean`<br>
+Default: `false`
+
+Set to `true` not to tag the commits. If you set `no-commit`, you don't have to set `no-tag`.
+
+### no-push
+
+Type: `Boolean`<br>
+Default: `false`
+
+Set to `true` not to push the committed changes. If you set `no-bump`, you'll likely want to set `no-commit` and `no-push` too.
+
 ### no-archives
 
 Type: `Boolean`<br>

@@ -19,6 +19,18 @@ inputs:
     description: >-
       Set to `true` not to bump the version number in source files. Only the changelog will be modified.
     default: false
+  no-commit:
+    description: >-
+      Set to `true` not to commit the changes. If you set `no-bump`, you'll likely want to set `no-commit` and `no-push` too.
+    default: false
+  no-tag:
+    description: >-
+      Set to `true` not to tag the commits. If you set `no-commit`, you don't have to set `no-tag`.
+    default: false
+  no-push:
+    description: >-
+      Set to `true` not to push the committed changes. If you set `no-bump`, you'll likely want to set `no-commit` and `no-push` too.
+    default: false
   no-archives:
     description: >-
       Set to `true` not to upload platform archives automatically as release assets.
@@ -60,6 +72,9 @@ runs:
     shell: bash
     env:
       FR_NO_BUMP: ${{ inputs.no-bump }}
+      FR_NO_COMMIT: ${{ inputs.no-commit }}
+      FR_NO_TAG: ${{ inputs.no-tag }}
+      FR_NO_PUSH: ${{ inputs.no-push }}
       FR_NO_ARCHIVES: ${{ inputs.no-archives }}
       FR_DRY: ${{ inputs.dry-run }}
       FR_DEBUG: ${{ inputs.debug }}
@@ -70,6 +85,18 @@ runs:
       if [[ "$FR_NO_BUMP" == "true" ]]; then
         echo "bumping version number disabled"
         VP_OPTIONS="$VP_OPTIONS --no-bump"
+      fi
+      if [[ "$FR_NO_COMMIT" == "true" ]]; then
+        echo "committing changes disabled"
+        VP_OPTIONS="$VP_OPTIONS --no-commit"
+      fi
+      if [[ "$FR_NO_TAG" == "true" ]]; then
+        echo "tagging commits disabled"
+        VP_OPTIONS="$VP_OPTIONS --no-tag"
+      fi
+      if [[ "$FR_NO_PUSH" == "true" ]]; then
+        echo "pushing commits disabled"
+        VP_OPTIONS="$VP_OPTIONS --no-push"
       fi
       if [[ "$FR_NO_ARCHIVES" == "true" ]]; then
         echo "archives disabled"
