@@ -14,7 +14,15 @@ on:
 jobs:
 
   release:
+    if: ${{ github.ref_name == 'master' }}
     runs-on: ubuntu-latest
     steps:
     - name: Checkout sources
       uses: actions/checkout@v4
+    - name: Publish release
+      uses: prantlf/publish-release-action@v1
+      with:
+        no-bump: true
+        no-archives: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
