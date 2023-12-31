@@ -15,6 +15,14 @@ inputs:
     description: >-
       Can be set to `false` to prevent this action from running. It's helpful in the pipeline, which will not continue releasing, but only building and testing, and that will be decided in the middle of a job execution.
     default: true
+  no-node:
+    description: >-
+      Set to `true` to ignore `package.json` and not handle the project as a Node.js package.
+    default: false
+  no-vlang:
+    description: >-
+      Set to `true` not to ignore `v.mod` and not handle the project as a V package.
+    default: false
   no-bump:
     description: >-
       Set to `true` not to bump the version number in source files. Only the changelog will be modified.
@@ -71,6 +79,8 @@ runs:
     if: ${{ steps.setup.outputs.enable == 'true' }}
     shell: bash
     env:
+      PR_NO_NODE: ${{ inputs.no-node }}
+      PR_NO_VLANG: ${{ inputs.no-vlang }}
       FR_NO_BUMP: ${{ inputs.no-bump }}
       FR_NO_COMMIT: ${{ inputs.no-commit }}
       FR_NO_TAG: ${{ inputs.no-tag }}
@@ -82,6 +92,14 @@ runs:
       git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
       git config --global user.name "github-actions[bot]"
       VP_OPTIONS="-yv --commit --tag"
+      if [[ "$PR_NO_NODE" == "true" ]]; then
+        echo "Node.js detection disabled"
+        VP_OPTIONS="$VP_OPTIONS --no-node"
+      fi
+      if [[ "$PR_NO_VLANG" == "true" ]]; then
+        echo "V detection disabled"
+        VP_OPTIONS="$VP_OPTIONS --no-vlang"
+      fi
       if [[ "$FR_NO_BUMP" == "true" ]]; then
         echo "bumping version number disabled"
         VP_OPTIONS="$VP_OPTIONS --no-bump"
