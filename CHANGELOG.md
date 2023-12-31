@@ -1,5 +1,11 @@
 # Changes
 
+# [1.3.0](https://github.com/prantlf/finish-release-action/compare/v1.2.0...v1.3.0) (2023-12-31)
+
+## Features
+
+* Allow disabling the project type detection - node or vlang ([8d54854](https://github.com/prantlf/finish-release-action/commit/8d548541dd3d0f195a40857c065af9d213818b8d))
+
 # [1.2.0](https://github.com/prantlf/finish-release-action/compare/v1.1.0...v1.2.0) (2023-11-04)
 
 ## Features
