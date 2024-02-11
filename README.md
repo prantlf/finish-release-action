@@ -76,12 +76,26 @@ Default: `false`
 
 Set to `true` not to commit the changes. If you set `no-bump`, you'll likely want to set `no-commit` and `no-push` too.
 
+### no-commit-skip-ci
+
+Type: `Boolean`<br>
+Default: `false`
+
+Set to `true` not to add `[skip ci]` to the commit message of the changes. Doing it will have another pipeline triggered, if commits are watched.
+
 ### no-tag
 
 Type: `Boolean`<br>
 Default: `false`
 
 Set to `true` not to tag the commits. If you set `no-commit`, you don't have to set `no-tag`.
+
+### no-tag-skip-ci
+
+Type: `Boolean`<br>
+Default: `false`
+
+Set to `true` not to add `[skip ci]` to the commit message of the tag. Doing it will have another pipeline triggered, if tags are watched.
 
 ### no-push
 
