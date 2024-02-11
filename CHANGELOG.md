@@ -1,5 +1,11 @@
 # Changes
 
+## [1.5.0](https://github.com/prantlf/finish-release-action/compare/v1.4.0...v1.5.0) (2024-02-11)
+
+### Features
+
+* Add no-rust input parameter ([fcc2a01](https://github.com/prantlf/finish-release-action/commit/fcc2a011288b14aa36e8a37b3f84e0e11e75faf8))
+
 ## [1.4.0](https://github.com/prantlf/finish-release-action/compare/v1.3.0...v1.4.0) (2024-02-11)
 
 ### Features
