@@ -1,5 +1,11 @@
 # Changes
 
+# [1.4.0](https://github.com/prantlf/finish-release-action/compare/v1.3.0...v1.4.0) (2024-02-11)
+
+## Features
+
+* Allow omitting skip-ci from the commit and tag messages ([5726dc8](https://github.com/prantlf/finish-release-action/commit/5726dc8bac0d08e5014d4258cd150c6daecca50b))
+
 # [1.3.0](https://github.com/prantlf/finish-release-action/compare/v1.2.0...v1.3.0) (2023-12-31)
 
 ## Features
