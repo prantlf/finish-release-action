@@ -62,6 +62,13 @@ Default: `false`
 
 Set to `true` not to ignore `v.mod` and not handle the project as a V package.
 
+### no-rust
+
+Type: `Boolean`<br>
+Default: `false`
+
+Set to `true` not to ignore `Cargo.toml` and not handle the project as a Rust package.
+
 ### no-bump
 
 Type: `Boolean`<br>

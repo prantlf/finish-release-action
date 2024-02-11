@@ -23,6 +23,10 @@ inputs:
     description: >-
       Set to `true` not to ignore `v.mod` and not handle the project as a V package.
     default: false
+  no-rust:
+    description: >-
+      Set to `true` not to ignore `Cargo.toml` and not handle the project as a Rust package.
+    default: false
   no-bump:
     description: >-
       Set to `true` not to bump the version number in source files. Only the changelog will be modified.
@@ -87,8 +91,9 @@ runs:
     if: ${{ steps.setup.outputs.enable == 'true' }}
     shell: bash
     env:
-      PR_NO_NODE: ${{ inputs.no-node }}
-      PR_NO_VLANG: ${{ inputs.no-vlang }}
+      FR_NO_NODE: ${{ inputs.no-node }}
+      FR_NO_VLANG: ${{ inputs.no-vlang }}
+      FR_NO_RUST: ${{ inputs.no-rust }}
       FR_NO_BUMP: ${{ inputs.no-bump }}
       FR_NO_COMMIT: ${{ inputs.no-commit }}
       FR_NO_COMMIT_SKIP_CI: ${{ inputs.no-commit-skip-ci }}
@@ -102,13 +107,17 @@ runs:
       git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
       git config --global user.name "github-actions[bot]"
       VP_OPTIONS="-yv --commit --tag"
-      if [[ "$PR_NO_NODE" == "true" ]]; then
+      if [[ "$FR_NO_NODE" == "true" ]]; then
         echo "Node.js detection disabled"
         VP_OPTIONS="$VP_OPTIONS --no-node"
       fi
-      if [[ "$PR_NO_VLANG" == "true" ]]; then
+      if [[ "$FR_NO_VLANG" == "true" ]]; then
         echo "V detection disabled"
         VP_OPTIONS="$VP_OPTIONS --no-vlang"
+      fi
+      if [[ "$FR_NO_RUST" == "true" ]]; then
+        echo "Rust detection disabled"
+        VP_OPTIONS="$VP_OPTIONS --no-rust"
       fi
       if [[ "$FR_NO_BUMP" == "true" ]]; then
         echo "bumping version number disabled"
