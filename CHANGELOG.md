@@ -1,5 +1,11 @@
 # Changes
 
+## [1.6.1](https://github.com/prantlf/finish-release-action/compare/v1.6.0...v1.6.1) (2024-04-14)
+
+### Bug Fixes
+
+* Work around with --bump-major-0 instead of -0 ([11e435a](https://github.com/prantlf/finish-release-action/commit/11e435a08aeac60aca92a180f3f580b582ca0d17))
+
 ## [1.6.0](https://github.com/prantlf/finish-release-action/compare/v1.5.0...v1.6.0) (2024-04-14)
 
 ### Features
