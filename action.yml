@@ -154,7 +154,7 @@ runs:
       fi
       if [[ "$FR_BUMP_MAJOR_0" == "true" ]]; then
         echo "bump to major 0 too"
-        VP_OPTIONS="$VP_OPTIONS -0"
+        VP_OPTIONS="$VP_OPTIONS --bump-major-0"
       fi
       if [[ "$FR_DRY" == "true" ]]; then
         echo "dry-run enabled"
