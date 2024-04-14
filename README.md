@@ -118,6 +118,13 @@ Default: `false`
 
 Set to `true` not to upload platform archives automatically as release assets.
 
+### bump-major-0
+
+Type: `Boolean`<br>
+Default: `false`
+
+Set to `true` to bump the major version also if it is 0.
+
 ### dry-run
 
 Type: `Boolean`<br>

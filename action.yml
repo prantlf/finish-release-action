@@ -55,6 +55,10 @@ inputs:
     description: >-
       Set to `true` not to upload platform archives automatically as release assets.
     default: false
+  bump-major-0:
+    description: >-
+      Set to `true` to bump the major version also if it is 0.
+    default: false
   dry-run:
     description: >-
       Can be set to `true` to only print what would be done without actually doing it.
@@ -101,6 +105,7 @@ runs:
       FR_NO_TAG_SKIP_CI: ${{ inputs.no-tag-skip-ci }}
       FR_NO_PUSH: ${{ inputs.no-push }}
       FR_NO_ARCHIVES: ${{ inputs.no-archives }}
+      FR_BUMP_MAJOR_0: ${{ inputs.bump-major-0 }}
       FR_DRY: ${{ inputs.dry-run }}
       FR_DEBUG: ${{ inputs.debug }}
     run: |
@@ -146,6 +151,10 @@ runs:
       if [[ "$FR_NO_ARCHIVES" == "true" ]]; then
         echo "archives disabled"
         VP_OPTIONS="$VP_OPTIONS --no-archives"
+      fi
+      if [[ "$FR_BUMP_MAJOR_0" == "true" ]]; then
+        echo "bump to major 0 too"
+        VP_OPTIONS="$VP_OPTIONS -0"
       fi
       if [[ "$FR_DRY" == "true" ]]; then
         echo "dry-run enabled"
