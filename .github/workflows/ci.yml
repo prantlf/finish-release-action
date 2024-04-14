@@ -15,7 +15,7 @@ jobs:
 
   release:
     if: ${{ github.ref_name == 'master' }}
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
     - name: Checkout sources
       uses: actions/checkout@v4
