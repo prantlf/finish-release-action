@@ -1,5 +1,11 @@
 # Changes
 
+## [1.6.0](https://github.com/prantlf/finish-release-action/compare/v1.5.0...v1.6.0) (2024-04-14)
+
+### Features
+
+* Add flag bump-major-0 ([07d604f](https://github.com/prantlf/finish-release-action/commit/07d604f216c5d6dcbffdf0a06974bc2509aa8eee))
+
 ## [1.5.0](https://github.com/prantlf/finish-release-action/compare/v1.4.0...v1.5.0) (2024-02-11)
 
 ### Features
