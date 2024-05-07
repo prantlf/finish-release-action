@@ -17,10 +17,8 @@ jobs:
     if: ${{ github.ref_name == 'master' }}
     runs-on: macos-13
     steps:
-    - name: Checkout sources
-      uses: actions/checkout@v4
-    - name: Publish release
-      uses: prantlf/publish-release-action@v1
+    - uses: actions/checkout@v4
+    - uses: prantlf/publish-release-action@v1
       with:
         no-bump: true
         no-archives: true
