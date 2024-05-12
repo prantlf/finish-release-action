@@ -1,5 +1,11 @@
 # Changes
 
+## [1.7.0](https://github.com/prantlf/finish-release-action/compare/v1.6.1...v1.7.0) (2024-05-12)
+
+### Features
+
+* Support go modules ([dbbc8aa](https://github.com/prantlf/finish-release-action/commit/dbbc8aa81ba1cee1cf674c6c5963a2882d657cd3))
+
 ## [1.6.1](https://github.com/prantlf/finish-release-action/compare/v1.6.0...v1.6.1) (2024-04-14)
 
 ### Bug Fixes
