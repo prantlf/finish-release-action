@@ -69,6 +69,13 @@ Default: `false`
 
 Set to `true` not to ignore `Cargo.toml` and not handle the project as a Rust package.
 
+### no-golang
+
+Type: `Boolean`<br>
+Default: `false`
+
+Set to `true` not to ignore `go.mod` and not handle the project as a Go package.
+
 ### no-bump
 
 Type: `Boolean`<br>
