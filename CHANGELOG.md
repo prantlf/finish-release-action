@@ -1,5 +1,15 @@
 # Changes
 
+## [2.0.0](https://github.com/prantlf/finish-release-action/compare/v1.8.0...v2.0.0) (2026-07-19)
+
+### Features
+
+* Upgrade dependencies ([ecdf1cb](https://github.com/prantlf/finish-release-action/commit/ecdf1cb0ab2d0b6acff4ee05ad4a9733fff1c712))
+
+### BREAKING CHANGES
+
+GitHub actions which this action depends on were upgraded to their latest versions, which require Node.js 24 for running.
+
 ## [1.8.0](https://github.com/prantlf/finish-release-action/compare/v1.7.0...v1.8.0) (2025-10-11)
 
 ### Features
