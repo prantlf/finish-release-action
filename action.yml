@@ -91,12 +91,12 @@ runs:
       fi
   - name: Install newchanges
     if: ${{ steps.setup.outputs.enable == 'true' }}
-    uses: prantlf/install-release-action@v1
+    uses: prantlf/install-release-action@v2
     with:
       repo: prantlf/v-newchanges
   - name: Install vp
     if: ${{ steps.setup.outputs.enable == 'true' }}
-    uses: prantlf/install-release-action@v1
+    uses: prantlf/install-release-action@v2
     with:
       repo: prantlf/vp
   - name: Commit and push changes and create release
