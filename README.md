@@ -9,7 +9,7 @@ Uses tools [newchanges] and [vp]. Usually run after [prantlf/bump-version-action
 Commit and push the changelog using the latest version written to it and create a new release:
 
 ```yml
-- uses: prantlf/finish-release-action@v1
+- uses: prantlf/finish-release-action@v2
 ```
 
 Work only in specific release branches, run only if new version is detected in the commit messages by [prantlf/bump-version-action]:
@@ -18,13 +18,13 @@ Work only in specific release branches, run only if new version is detected in t
 jobs:
   build:
     steps:
-    - uses: actions/checkout@v4
-    - uses: prantlf/setup-v-action@v2
+    - uses: actions/checkout@v7
+    - uses: prantlf/setup-v-action@v4
     - name: Bump version
       id: bump
-      uses: prantlf/bump-version-action@v1
+      uses: prantlf/bump-version-action@v3
     - run: ...
-    - uses prantlf/finish-release-action@v1
+    - uses prantlf/finish-release-action@v2
       if: ${{ steps.bump.outputs.bumped }}
       with:
         branches: master v1.x
