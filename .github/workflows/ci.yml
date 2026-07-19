@@ -12,12 +12,11 @@ on:
   pull_request:
 
 jobs:
-
   release:
     if: ${{ github.ref_name == 'master' }}
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
     - uses: prantlf/publish-release-action@v1
       with:
         no-bump: true
